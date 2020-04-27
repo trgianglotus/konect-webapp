@@ -56,7 +56,7 @@ class AddAppointments extends Component {
             }>
                 <div className="apt-addheading card-header bg-primary text-white"
                     onClick={this.props.toggleForm}>
-                    <FaPlus /> Add Appointment
+                    <FaPlus /> Add Product
             </div>
 
                 <div className="card-body">
@@ -68,14 +68,14 @@ class AddAppointments extends Component {
                                 htmlFor="petName"
                                 readOnly
                             >
-                                Pet Name
+                                Product Name
                   </label>
                             <div className="col-md-10">
                                 <input
                                     type="text"
                                     className="form-control"
                                     name="petName"
-                                    placeholder="Pet's Name"
+                                    placeholder="Product Name"
                                     value={this.state.petName}
                                     onChange={this.handleChange}
                                 />
@@ -94,7 +94,7 @@ class AddAppointments extends Component {
                                     type="text"
                                     className="form-control"
                                     name="ownerName"
-                                    placeholder="Owner's Name"
+                                    placeholder="Supplier's Name"
                                     value={this.state.ownerName}
                                     onChange={this.handleChange}
                                 />
@@ -138,7 +138,7 @@ class AddAppointments extends Component {
 
                         <div className="form-group form-row">
                             <label className="col-md-2 text-md-right" htmlFor="aptNotes">
-                                Apt. Notes
+                                Description
                   </label>
                             <div className="col-md-10">
                                 <textarea
@@ -147,7 +147,7 @@ class AddAppointments extends Component {
                                     cols="50"
                                     name="aptNotes"
                                     id="aptNotes"
-                                    placeholder="Appointment Notes"
+                                    placeholder="Description"
                                     value={this.state.aptNotes}
                                     onChange={this.handleChange}
                                 />
@@ -160,7 +160,7 @@ class AddAppointments extends Component {
                                     type="submit"
                                     className="btn btn-primary d-block ml-auto"
                                 >
-                                    Add Appointment
+                                    Add Product
                     </button>
                             </div>
                         </div>

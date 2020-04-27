@@ -31,7 +31,7 @@ class SearchAppointments extends Component {
                                 } href="#"
                                     onClick={e => this.props.changeOrder('petName', this.props.orderDir)}
                                 >
-                                    Pet Name
+                                    Product Name
                     </button>
                                 <button className={
                                     'sort-by dropdown-item ' +
@@ -47,7 +47,7 @@ class SearchAppointments extends Component {
                                 } href="#"
                                     onClick={e => this.props.changeOrder('ownerName', this.props.orderDir)}
                                 >
-                                    Owner
+                                    Supplier
                     </button>
                                 <div role="separator" className="dropdown-divider" />
                                 <button className={

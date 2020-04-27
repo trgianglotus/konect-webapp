@@ -37,7 +37,7 @@ class ListAppointments extends Component {
                                 suppressContentEditableWarning
                                 onBlur={e => this.props.updateInfo('ownerName', e.target.innerText, item.aptId)}
                             >
-                                <span className="label-item">Owner: </span>
+                                <span className="label-item">Supplier: </span>
                                 <span>{item.ownerName}</span>
                             </div>
                             <div className="apt-notes"
