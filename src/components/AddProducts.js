@@ -3,16 +3,16 @@ import { FaPlus } from 'react-icons/fa';
 
 
 
-class AddAppointments extends Component {
+class AddProducts extends Component {
 
     constructor() {
         super();
         this.state = {
-            petName: '',
-            ownerName: '',
-            aptDate: '',
+            productName: '',
+            supplierName: '',
+            postedDate: '',
             aptTime: '',
-            aptNotes: '',
+            productDesc: '',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
@@ -31,19 +31,19 @@ class AddAppointments extends Component {
     handleAdd(e) {
         e.preventDefault();
         let tempApt = {
-            petName: this.state.petName,
-            ownerName: this.state.ownerName,
-            aptDate: this.state.aptDate,
+            productName: this.state.productName,
+            supplierName: this.state.supplierName,
+            postedDate: this.state.postedDate,
             aptTime: this.state.aptTime,
-            aptNotes: this.state.aptNotes,
+            productDesc: this.state.productDesc,
         }
-        this.props.addAppointment(tempApt);
+        this.props.addProduct(tempApt);
         this.setState({
-            petName: '',
-            ownerName: '',
-            aptDate: '',
+            productName: '',
+            supplierName: '',
+            postedDate: '',
             aptTime: '',
-            aptNotes: '',
+            productDesc: '',
         });
         this.props.toggleForm();
     }
@@ -52,7 +52,7 @@ class AddAppointments extends Component {
         return (
             <div className={
                 'card textcenter mt-3 ' +
-                (this.props.formDisplay ? '' : 'add-appointment')
+                (this.props.formDisplay ? '' : 'add-product')
             }>
                 <div className="apt-addheading card-header bg-primary text-white"
                     onClick={this.props.toggleForm}>
@@ -65,7 +65,7 @@ class AddAppointments extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="petName"
+                                htmlFor="productName"
                                 readOnly
                             >
                                 Product Name
@@ -74,9 +74,9 @@ class AddAppointments extends Component {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="petName"
+                                    name="productName"
                                     placeholder="Product Name"
-                                    value={this.state.petName}
+                                    value={this.state.productName}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -85,7 +85,7 @@ class AddAppointments extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="ownerName"
+                                htmlFor="supplierName"
                             >
                                 Pet Owner
                   </label>
@@ -93,9 +93,9 @@ class AddAppointments extends Component {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="ownerName"
+                                    name="supplierName"
                                     placeholder="Supplier's Name"
-                                    value={this.state.ownerName}
+                                    value={this.state.supplierName}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -104,7 +104,7 @@ class AddAppointments extends Component {
                         <div className="form-group form-row">
                             <label
                                 className="col-md-2 col-form-label text-md-right"
-                                htmlFor="aptDate"
+                                htmlFor="postedDate"
                             >
                                 Date
                   </label>
@@ -112,9 +112,9 @@ class AddAppointments extends Component {
                                 <input
                                     type="date"
                                     className="form-control"
-                                    name="aptDate"
-                                    id="aptDate"
-                                    value={this.state.aptDate}
+                                    name="postedDate"
+                                    id="postedDate"
+                                    value={this.state.postedDate}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -137,7 +137,7 @@ class AddAppointments extends Component {
                         </div>
 
                         <div className="form-group form-row">
-                            <label className="col-md-2 text-md-right" htmlFor="aptNotes">
+                            <label className="col-md-2 text-md-right" htmlFor="productDesc">
                                 Description
                   </label>
                             <div className="col-md-10">
@@ -145,10 +145,10 @@ class AddAppointments extends Component {
                                     className="form-control"
                                     rows="4"
                                     cols="50"
-                                    name="aptNotes"
-                                    id="aptNotes"
+                                    name="productDesc"
+                                    id="productDesc"
                                     placeholder="Description"
-                                    value={this.state.aptNotes}
+                                    value={this.state.productDesc}
                                     onChange={this.handleChange}
                                 />
                             </div>
@@ -171,4 +171,4 @@ class AddAppointments extends Component {
     }
 }
 
-export default AddAppointments;
+export default AddProducts;

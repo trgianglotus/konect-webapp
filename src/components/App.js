@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 
-import AddAppointments from './AddAppointments';
-import SearchAppointments from './SearchAppointments';
-import ListAppointments from './ListAppointments';
+import AddProducts from './AddProducts';
+import SearchProducts from './SearchProducts';
+import ListProducts from './ListProducts';
 
 import { without, findIndex } from 'lodash';
 
@@ -11,16 +11,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      myAppointments: [],
+      myProducts: [],
       formDisplay: false,
-      orderBy: 'petName',
+      orderBy: 'productName',
       orderDir: 'asc',
       queryText: '',
       lastIndex: 0
     };
-    this.deleteAppointment = this.deleteAppointment.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
-    this.addAppointment = this.addAppointment.bind(this);
+    this.addProduct = this.addProduct.bind(this);
     this.changeOrder = this.changeOrder.bind(this);
     this.searchApts = this.searchApts.bind(this);
     this.updateInfo = this.updateInfo.bind(this);
@@ -39,13 +39,13 @@ class App extends Component {
   }
 
   updateInfo(name, value, id) {
-    let tempApts = this.state.myAppointments;
-    let aptIndex = findIndex(this.state.myAppointments, {
+    let tempApts = this.state.myProducts;
+    let aptIndex = findIndex(this.state.myProducts, {
       aptId: id
     });
     tempApts[aptIndex][name] = value;
     this.setState({
-      myAppointments: tempApts
+      myProducts: tempApts
     })
   }
 
@@ -56,22 +56,22 @@ class App extends Component {
     });
   }
 
-  addAppointment(apt) {
-    let tempApts = this.state.myAppointments;
+  addProduct(apt) {
+    let tempApts = this.state.myProducts;
     apt.aptId = this.state.lastIndex;
     tempApts.unshift(apt);
     this.setState({
-      myAppointments: tempApts,
+      myProducts: tempApts,
       lastIndex: this.state.lastIndex + 1
     });
   }
 
-  deleteAppointment(apt) {
-    let tempApts = this.state.myAppointments;
+  deleteProduct(apt) {
+    let tempApts = this.state.myProducts;
     tempApts = without(tempApts, apt);
 
     this.setState({
-      myAppointments: tempApts
+      myProducts: tempApts
     });
   }
 
@@ -85,14 +85,14 @@ class App extends Component {
           return item;
         });
         this.setState({
-          myAppointments: apts
+          myProducts: apts
         });
       });
   }
 
   render() {
     let order;
-    let filteredApts = this.state.myAppointments;
+    let filteredApts = this.state.myProducts;
     if (this.state.orderDir === 'asc') {
       order = 1;
     } else {
@@ -110,13 +110,13 @@ class App extends Component {
       }
     }).filter(eachItem => {
       return (
-        eachItem['petName']
+        eachItem['productName']
           .toLowerCase()
           .includes(this.state.queryText.toLowerCase()) ||
-        eachItem['ownerName']
+        eachItem['supplierName']
           .toLowerCase()
           .includes(this.state.queryText.toLowerCase()) ||
-        eachItem['aptNotes']
+        eachItem['productDesc']
           .toLowerCase()
           .includes(this.state.queryText.toLowerCase())
       )
@@ -128,20 +128,20 @@ class App extends Component {
           <div className="row">
             <div className="col-md-12 bg-white">
               <div className="container">
-                <AddAppointments
+                <AddProducts
                   formDisplay={this.state.formDisplay}
                   toggleForm={this.toggleForm}
-                  addAppointment={this.addAppointment}
+                  addProduct={this.addProduct}
                 />
-                <SearchAppointments
+                <SearchProducts
                   orderBy={this.state.orderBy}
                   orderDir={this.state.orderDir}
                   changeOrder={this.changeOrder}
                   searchApts={this.searchApts}
                 />
-                <ListAppointments
-                  appointments={filteredApts}
-                  deleteAppointment={this.deleteAppointment}
+                <ListProducts
+                  products={filteredApts}
+                  deleteProduct={this.deleteProduct}
                   updateInfo={this.updateInfo}
                 />
               </div>

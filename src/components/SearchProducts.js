@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-class SearchAppointments extends Component {
+class SearchProducts extends Component {
     render() {
         return (
-            <div className="search-appointments row justify-content-center my-4">
+            <div className="search-products row justify-content-center my-4">
                 <div className="col-md-6">
                     <div className="input-group">
                         <input
                             id="SearchApts"
                             type="text"
                             className="form-control"
-                            aria-label="Search Appointments"
+                            aria-label="Search products"
                             onChange={e => this.props.searchApts(e.target.value)}
                         />
                         <div className="input-group-append">
@@ -27,25 +27,25 @@ class SearchAppointments extends Component {
                             <div className="sort-menu dropdown-menu dropdown-menu-right">
                                 <button className={
                                     'sort-by dropdown-item ' +
-                                    (this.props.orderBy === "petName" ? "active" : '')
+                                    (this.props.orderBy === "productName" ? "active" : '')
                                 } href="#"
-                                    onClick={e => this.props.changeOrder('petName', this.props.orderDir)}
+                                    onClick={e => this.props.changeOrder('productName', this.props.orderDir)}
                                 >
                                     Product Name
                     </button>
                                 <button className={
                                     'sort-by dropdown-item ' +
-                                    (this.props.orderBy === "aptDate" ? "active" : '')
+                                    (this.props.orderBy === "postedDate" ? "active" : '')
                                 } href="#"
-                                    onClick={e => this.props.changeOrder('aptDate', this.props.orderDir)}
+                                    onClick={e => this.props.changeOrder('postedDate', this.props.orderDir)}
                                 >
                                     Date
                     </button>
                                 <button className={
                                     'sort-by dropdown-item ' +
-                                    (this.props.orderBy === "ownerName" ? "active" : '')
+                                    (this.props.orderBy === "supplierName" ? "active" : '')
                                 } href="#"
-                                    onClick={e => this.props.changeOrder('ownerName', this.props.orderDir)}
+                                    onClick={e => this.props.changeOrder('supplierName', this.props.orderDir)}
                                 >
                                     Supplier
                     </button>
@@ -75,4 +75,4 @@ class SearchAppointments extends Component {
     }
 }
 
-export default SearchAppointments;
+export default SearchProducts;
