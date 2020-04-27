@@ -87,7 +87,7 @@ class AddProducts extends Component {
                                 className="col-md-2 col-form-label text-md-right"
                                 htmlFor="supplierName"
                             >
-                                Pet Owner
+                                Supplier
                   </label>
                             <div className="col-md-10">
                                 <input
